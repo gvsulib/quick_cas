@@ -27,7 +27,7 @@ session_start();
 
 // Send user to CAS
 include_once('CAS.php');
-$filename = 'home/libtech/gvsulib.com/temp/caslog.txt';
+$filename = 'caslog.txt';
 phpCAS::setDebug($filename);
 
 // initialize phpCAS
