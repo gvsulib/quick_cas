@@ -36,6 +36,9 @@ session_start();
 
 			// force CAS authentication
 			phpCAS::forceAuthentication();
+
+			$_SESSION['username'] = phpCAS::getUser();
+
 		}
 	}
 
@@ -45,7 +48,6 @@ session_start();
 // and the user's login name can be read with phpCAS::getUser().
 
 
-$_SESSION['username'] = phpCAS::getUser();
 
 if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
