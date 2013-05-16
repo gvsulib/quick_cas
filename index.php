@@ -15,7 +15,14 @@ session_start();
 
 	$now = time();
 	$user_location = sha1($_SERVER['REMOTE_ADDR']);
-	$referrer = $_SESSION['location'];
+	
+	if(isset($_SESSION['location'])) {
+		$referrer = $_SESSION['location'];
+	} else {
+		if(isset($_SERVER['HTTP_REFERER'])) {
+			$referrer = $_SERVER['HTTP_REFERER'];
+		}
+	}
 
 	if(isset($referrer)) {
 		$result = $db->query("INSERT INTO cas VALUES ('', '$user_location', '$referrer', '$now')");
@@ -41,6 +48,8 @@ session_start();
 			$_SESSION['username'] = phpCAS::getUser();
 
 		}
+	} else {
+		echo 'There was no referer.';
 	}
 
 
