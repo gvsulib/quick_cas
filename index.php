@@ -10,9 +10,8 @@ session_start();
 	if ($db->connect_errno) {
     	printf("Connect failed: %s\n", $db->connect_error);
     	exit();
-	} else {
-		echo
-	}
+	} 
+		
 
 	$now = time();
 	$user_location = sha1($_SERVER['REMOTE_ADDR']);
