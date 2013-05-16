@@ -22,32 +22,28 @@ session_start();
 		if(!$result) {
 			echo 'There was an error';
 			die;
+		} else {
+			// Send user to CAS
+			include_once('CAS.php');
+			$filename = 'caslog.txt';
+			phpCAS::setDebug($filename);
+
+			// initialize phpCAS
+			phpCAS::client(CAS_VERSION_2_0,'cas.gvsu.edu',443,'/auth/');
+
+			// no SSL validation for the CAS server
+			phpCAS::setNoCasServerValidation();
+
+			// force CAS authentication
+			phpCAS::forceAuthentication();
 		}
 	}
 
-// Send user to CAS
-include_once('CAS.php');
-$filename = 'caslog.txt';
-phpCAS::setDebug($filename);
 
-// initialize phpCAS
-phpCAS::client(CAS_VERSION_2_0,'cas.gvsu.edu',443,'/auth/');
-
-// no SSL validation for the CAS server
-phpCAS::setNoCasServerValidation();
-
-// force CAS authentication
-phpCAS::forceAuthentication();
 
 // at this step, the user has been authenticated by the CAS server
 // and the user's login name can be read with phpCAS::getUser().
 
-// logout if desired
-if (isset($_REQUEST['logout'])) {
-	$_SESSION = array();
-	session_destroy();
-	phpCAS::logout();
-}
 
 $_SESSION['username'] = phpCAS::getUser();
 
