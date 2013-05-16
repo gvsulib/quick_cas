@@ -63,7 +63,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 
 	$hashed_ip = sha1($_SERVER['REMOTE_ADDR']);
 
-	$loggedin_result = $db->query("SELECT referrer FROM cas WHERE user_location='$hashed_ip' ORDER BY timestamp DESC LIMIT 1");
+	$loggedin_result = $db->query("SELECT * FROM cas WHERE user_location='$hashed_ip' ORDER BY timestamp DESC LIMIT 1");
 
 	if($loggedin_result) {
 
