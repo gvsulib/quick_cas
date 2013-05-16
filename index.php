@@ -10,13 +10,15 @@ session_start();
 	if ($db->connect_errno) {
     	printf("Connect failed: %s\n", $db->connect_error);
     	exit();
+	} else {
+		echo
 	}
 
 	$now = time();
 	$user_location = sha1($_SERVER['REMOTE_ADDR']);
-	$referrer = $_SERVER['HTTP_REFERER'];
+	$referrer = $_SESSION['location'];
 
-	if($referrer != NULL) {
+	if(isset($referrer)) {
 		$result = $db->query("INSERT INTO cas VALUES ('', '$user_location', '$referrer', '$now')");
 
 		if(!$result) {
