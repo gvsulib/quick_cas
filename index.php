@@ -31,7 +31,7 @@ $filename = 'caslog.txt';
 phpCAS::setDebug($filename);
 
 // initialize phpCAS
-phpCAS::client(CAS_VERSION_2_0,'cas-test.gvsu.edu',443,'/auth/');
+phpCAS::client(CAS_VERSION_2_0,'cas.gvsu.edu',443,'/auth/');
 
 // no SSL validation for the CAS server
 phpCAS::setNoCasServerValidation();
