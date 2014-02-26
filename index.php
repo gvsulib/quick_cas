@@ -16,6 +16,12 @@ session_start();
 	$now = time();
 	$user_location = sha1($_SERVER['REMOTE_ADDR']);
 	
+	if (isset($_REQUEST['logout'])) {
+		$_SESSION = array();
+		session_destroy();
+		header('Location: http://gvsu.edu/library');
+	}
+	
 	if(isset($_SESSION['location'])) {
 		$referrer = $_SESSION['location'];
 	} else {
