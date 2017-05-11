@@ -19,7 +19,7 @@ session_start();
 	if (isset($_REQUEST['logout'])) {
 		$_SESSION = array();
 		session_destroy();
-		header('Location: http://gvsu.edu/library');
+		header('Location: https://eis.gvsu.edu/auth/logout');
 	}
 	
 	if(isset($_SESSION['location'])) {
@@ -43,7 +43,7 @@ session_start();
 			phpCAS::setDebug($filename);
 
 			// initialize phpCAS
-			phpCAS::client(CAS_VERSION_2_0,'cas.gvsu.edu',443,'/auth/');
+			phpCAS::client(CAS_VERSION_2_0,'eis.gvsu.edu',443,'/auth/');
 
 			// no SSL validation for the CAS server
 			phpCAS::setNoCasServerValidation();
