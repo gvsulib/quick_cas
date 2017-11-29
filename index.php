@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 // Hash the user's IP address and referrer and save to db
 // Connect to database
@@ -17,13 +17,12 @@ session_start();
 	$user_location = sha1($_SERVER['REMOTE_ADDR']);
 	
 	if (isset($_REQUEST['logout'])) {
-		$_SESSION = array();
-		session_destroy();
+		setcookie("login", "", -3600, "/");
 		header('Location: https://eis.gvsu.edu/auth/logout');
 	}
 	
-	if(isset($_SESSION['location'])) {
-		$referrer = $_SESSION['location'];
+	if(isset($_COOKIE['location'])) {
+		$referrer = $_COOKIE['location'];
 	} else {
 		if(isset($_SERVER['HTTP_REFERER'])) {
 			$referrer = $_SERVER['HTTP_REFERER'];
@@ -51,7 +50,9 @@ session_start();
 			// force CAS authentication
 			phpCAS::forceAuthentication();
 
-			$_SESSION['username'] = phpCAS::getUser();
+			$username = phpCAS::getUser();
+			setcookie("login", $username, 0, "/");
+			$_COOKIE['login'] = $username;
 
 		}
 	} else {
@@ -65,7 +66,7 @@ session_start();
 
 
 
-if(isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])) {
 
 	$hashed_ip = sha1($_SERVER['REMOTE_ADDR']);
 
