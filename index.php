@@ -42,7 +42,7 @@
 			die;
 		} else {
 			echo "making it to CAS section";
-			/*
+			
 			// Send user to CAS
 			include_once('CAS.php');
 			$filename = 'caslog.txt';
@@ -59,7 +59,7 @@
 
 			$username = phpCAS::getUser();
 			setcookie("login", $username, 0, "/");
-			$_COOKIE['login'] = $username;*/
+			$_COOKIE['login'] = $username;
 
 		}
 	} else {
