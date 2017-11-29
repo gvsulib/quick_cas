@@ -29,9 +29,9 @@
 		}
 	}
 
-	echo "Cookie:" . $_COOKIE['referrer'];
-	echo "referrer:" . $referrer;
-	echo "login:" . $_COOKIE['login'];
+	//echo "Cookie:" . $_COOKIE['referrer'];
+	//echo "referrer:" . $referrer;
+	//echo "login:" . $_COOKIE['login'];
 
 
 	if(isset($referrer)) {
@@ -41,7 +41,7 @@
 			echo 'There was an error writing referrer to the database.';
 			die;
 		} else {
-			echo "making it to CAS section";
+			//echo "making it to CAS section";
 			
 			// Send user to CAS
 			include_once('CAS.php');
