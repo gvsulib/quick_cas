@@ -29,6 +29,11 @@
 		}
 	}
 
+	echo $_COOKIE['location'];
+	echo $referrer;
+	echo $_COOKIE['login'];
+
+/*
 	if(isset($referrer)) {
 		$result = $db->query("INSERT INTO cas VALUES ('', '$user_location', '$referrer', '$now')");
 
@@ -94,4 +99,5 @@ if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])) {
 	}
 
 }
-
+*/
+?>
