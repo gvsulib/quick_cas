@@ -33,14 +33,16 @@
 	echo "referrer:" . $referrer;
 	echo "login:" . $_COOKIE['login'];
 
-/*
+
 	if(isset($referrer)) {
 		$result = $db->query("INSERT INTO cas VALUES ('', '$user_location', '$referrer', '$now')");
 
 		if(!$result) {
-			echo 'There was an error';
+			echo 'There was an error writing referrer to the database.';
 			die;
 		} else {
+			echo "making it to CAS section";
+			/*
 			// Send user to CAS
 			include_once('CAS.php');
 			$filename = 'caslog.txt';
@@ -57,7 +59,7 @@
 
 			$username = phpCAS::getUser();
 			setcookie("login", $username, 0, "/");
-			$_COOKIE['login'] = $username;
+			$_COOKIE['login'] = $username;*/
 
 		}
 	} else {
@@ -99,5 +101,5 @@ if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])) {
 	}
 
 }
-*/
+
 ?>
