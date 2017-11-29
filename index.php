@@ -29,9 +29,9 @@
 		}
 	}
 
-	echo $_COOKIE['location'];
-	echo $referrer;
-	echo $_COOKIE['login'];
+	echo "Cookie:" . $_COOKIE['location'];
+	echo "referrer:" . $referrer;
+	echo "login:" . $_COOKIE['login'];
 
 /*
 	if(isset($referrer)) {
