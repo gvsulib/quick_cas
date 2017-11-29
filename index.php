@@ -21,15 +21,15 @@
 		header('Location: https://eis.gvsu.edu/auth/logout');
 	}
 	
-	if(isset($_COOKIE['location'])) {
-		$referrer = $_COOKIE['location'];
+	if(isset($_COOKIE['referrer'])) {
+		$referrer = $_COOKIE['referrer'];
 	} else {
 		if(isset($_SERVER['HTTP_REFERER'])) {
 			$referrer = $_SERVER['HTTP_REFERER'];
 		}
 	}
 
-	echo "Cookie:" . $_COOKIE['location'];
+	echo "Cookie:" . $_COOKIE['referrer'];
 	echo "referrer:" . $referrer;
 	echo "login:" . $_COOKIE['login'];
 
