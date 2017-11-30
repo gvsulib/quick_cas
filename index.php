@@ -18,7 +18,7 @@
 	
 	if (isset($_REQUEST['logout'])) {
 		setcookie("login", "", -3600, "/");
-		header('Location: https://eis-test.gvsu.edu/auth/logout');
+		header('Location: https://eis.gvsu.edu/auth/logout');
 	}
 	
 	if(isset($_COOKIE['referrer'])) {
@@ -49,7 +49,7 @@
 			phpCAS::setDebug($filename);
 
 			// initialize phpCAS
-			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/');
+			phpCAS::client(CAS_VERSION_2_0,'eis.gvsu.edu',443,'/auth/');
 
 			// no SSL validation for the CAS server
 			phpCAS::setNoCasServerValidation();
