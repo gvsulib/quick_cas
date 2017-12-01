@@ -5,6 +5,8 @@
 // Connect to database
 	include('config.php');
 
+	require_once "phpCAS/CAS.php";
+
 	$db = new mysqli($db_host, $db_user, $db_pass, $db_database);
 	
 	if ($db->connect_errno) {
@@ -47,6 +49,7 @@
 			include_once('CAS.php');
 			$filename = 'caslog.txt';
 			phpCAS::setDebug($filename);
+			phpCAS::setVerbose(true);
 
 			// initialize phpCAS
 			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/');
