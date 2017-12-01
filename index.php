@@ -1,10 +1,6 @@
 <?php
 
 
-if (!isset($_COOKIE["login"])) {
-        setcookie("login", "", 0, "/");
-        $_COOKIE["login"] = "";
-}
 
 
 
@@ -33,9 +29,7 @@ if (!isset($_COOKIE["login"])) {
 			// force CAS authentication
 			phpCAS::forceAuthentication();
 
-			$username = phpCAS::getUser();
-			setcookie("login", $username, 0, "/");
-			$_COOKIE['login'] = $username;
+			
 
 	}
 	
