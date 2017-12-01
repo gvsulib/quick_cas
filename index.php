@@ -10,7 +10,7 @@ if (!isset($_COOKIE["login"])) {
 
 // Connect to database
 	
-	include_once('phpCAS/CAS.php');
+	include_once('CASold/CAS.php');
 
 
 	if (isset($_REQUEST['logout'])) {
