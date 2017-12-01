@@ -12,6 +12,8 @@ if (!isset($_COOKIE["login"])) {
 	include('config.php');
 	include_once('phpCAS/CAS.php');
 
+	
+
 	$db = new mysqli($db_host, $db_user, $db_pass, $db_database);
 	
 	if ($db->connect_errno) {
@@ -43,12 +45,12 @@ if (!isset($_COOKIE["login"])) {
 		//echo "making it to CAS section";
 			
 			// Send user to CAS
-			
+			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/');
 			$filename = 'caslog.txt';
 			phpCAS::setDebug($filename);
 
 			// initialize phpCAS
-			phpCAS::client(CAS_VERSION_2_0,'eis.gvsu.edu',443,'/auth/');
+			
 
 			// no SSL validation for the CAS server
 			phpCAS::setNoCasServerValidation();
