@@ -9,38 +9,13 @@ if (!isset($_COOKIE["login"])) {
 
 // Hash the user's IP address and referrer and save to db
 // Connect to database
-	include('config.php');
+	
 	include_once('phpCAS/CAS.php');
 
-	
 
-	$db = new mysqli($db_host, $db_user, $db_pass, $db_database);
-	
-	if ($db->connect_errno) {
-    	printf("Connect failed: %s\n", $db->connect_error);
-    	exit();
-	} 
-		
-
-	$now = time();
-	$user_location = sha1($_SERVER['REMOTE_ADDR']);
-	
 	if (isset($_REQUEST['logout'])) {
 		setcookie("login", "", -3600, "/");
 		phpCAS::logout();
-	}
-	
-	
-
-	
-
-
-	
-	$result = $db->query("INSERT INTO cas VALUES ('', '$user_location', '$referrer', '$now')");
-
-	if(!$result) {
-		echo 'There was an error writing referrer to the database.';
-		die;
 	} else {
 		//echo "making it to CAS section";
 			
@@ -70,14 +45,17 @@ if (!isset($_COOKIE["login"])) {
 // at this step, the user has been authenticated by the CAS server
 // and the user's login name can be read with phpCAS::getUser().
 
-
-
-if(isset($_COOKIE['login']) && !empty($_COOKIE['login'])) {
-
-	
-	
-	echo "login:" . $_COOKIE['login'];
-
-}
-
 ?>
+
+<html>
+  <head>
+    <title>phpCAS simple client</title>
+  </head>
+  <body>
+    <h1>Successfull Authentication!</h1>
+    <?php require 'script_info.php' ?>
+    <p>the user's login is <b><?php echo phpCAS::getUser(); ?></b>.</p>
+    <p>phpCAS version is <b><?php echo phpCAS::getVersion(); ?></b>.</p>
+    <p><a href="?logout=">Logout</a></p>
+  </body>
+</html>
