@@ -7,7 +7,7 @@ if (!isset($_COOKIE["login"])) {
 }
 
 
-// Hash the user's IP address and referrer and save to db
+
 // Connect to database
 	
 	include_once('phpCAS/CAS.php');
@@ -53,7 +53,7 @@ if (!isset($_COOKIE["login"])) {
   </head>
   <body>
     <h1>Successfull Authentication!</h1>
-    <?php require 'script_info.php' ?>
+    
     <p>the user's login is <b><?php echo phpCAS::getUser(); ?></b>.</p>
     <p>phpCAS version is <b><?php echo phpCAS::getVersion(); ?></b>.</p>
     <p><a href="?logout=">Logout</a></p>
