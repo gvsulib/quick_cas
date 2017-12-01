@@ -10,6 +10,7 @@ if (!isset($_COOKIE["login"])) {
 // Hash the user's IP address and referrer and save to db
 // Connect to database
 	include('config.php');
+	include_once('phpCAS/CAS.php');
 
 	$db = new mysqli($db_host, $db_user, $db_pass, $db_database);
 	
@@ -42,7 +43,7 @@ if (!isset($_COOKIE["login"])) {
 		//echo "making it to CAS section";
 			
 			// Send user to CAS
-			include_once('CAS.php');
+			
 			$filename = 'caslog.txt';
 			phpCAS::setDebug($filename);
 
