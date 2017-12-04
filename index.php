@@ -8,7 +8,7 @@
 	
 	include_once('CASold/CAS.php');
 	$filename = "caslog.log";
-	phpCAS::setDebug($filename);
+	
 	phpCAS::setVerbose(true);
 
 
