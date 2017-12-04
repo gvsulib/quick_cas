@@ -6,7 +6,7 @@
 
 // Connect to database
 	
-	include_once('CASold/CAS.php');
+	include_once('recentCAS/CAS.php');
 	
 	
 
@@ -19,7 +19,7 @@
 			
 			// Send user to CAS
 			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/');
-			phpCAS::setVerbose(true);
+			
 			$filename = 'caslog.txt';
 			phpCAS::setDebug($filename);
 
