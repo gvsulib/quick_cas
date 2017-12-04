@@ -7,6 +7,9 @@
 // Connect to database
 	
 	include_once('CASold/CAS.php');
+	$filename = "caslog.log";
+	phpCAS::setDebug($filename);
+	phpCAS::setVerbose(true);
 
 
 	if (isset($_REQUEST['logout'])) {
@@ -16,7 +19,7 @@
 		//echo "making it to CAS section";
 			
 			// Send user to CAS
-			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/');
+			phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/', false);
 			$filename = 'caslog.txt';
 			phpCAS::setDebug($filename);
 
