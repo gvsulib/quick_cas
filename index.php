@@ -18,7 +18,7 @@
 
 
 // Send user to CAS
-phpCAS::client(CAS_VERSION_2_0,'eis-test.gvsu.edu',443,'/auth/', false);
+phpCAS::client(CAS_VERSION_3_0,'eis-test.gvsu.edu',443,'/auth/', false);
 			
 $filename = 'caslog.txt';
 phpCAS::setDebug($filename);
