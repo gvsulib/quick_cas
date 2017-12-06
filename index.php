@@ -6,7 +6,7 @@
 
 // Connect to database
 	
-	include_once('CASold/CAS.php');
+	include_once('recentCAS/CAS.php');
 	
 	
 
