@@ -32,7 +32,7 @@ phpCAS::setNoCasServerValidation();
 
   $file = fopen("session.log", 'a');
 
-  fwrite($file, "can write";
+  fwrite($file, "can write");
 
   fclose($file);
 
