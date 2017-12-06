@@ -29,9 +29,13 @@ phpCAS::setVerbose(true);
 
 // no SSL validation for the CAS server
 phpCAS::setNoCasServerValidation();
+if (isset($_SESSION['phpCAS'])) {
+  $file = fopen("session.log", 'a');
 
-var_dump($_SESSION['phpCAS']);
+  fwrite($file, var_dump($_SESSION['phpCAS']));
 
+  fclose($file);
+}
 // force CAS authentication
 phpCAS::forceAuthentication();
 
