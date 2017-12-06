@@ -30,6 +30,8 @@ phpCAS::setVerbose(true);
 // no SSL validation for the CAS server
 phpCAS::setNoCasServerValidation();
 
+var_dump($_SESSION['phpCAS']);
+
 // force CAS authentication
 phpCAS::forceAuthentication();
 
